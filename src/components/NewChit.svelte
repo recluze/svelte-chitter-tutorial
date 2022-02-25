@@ -19,7 +19,7 @@
 
     .chit-entry textarea {
         display: block;
-        flex-basis: 95%;
+        flex-basis: 90%;
         background-color: #282c34;
         color: #dce4ec;
         font-size: smaller;
