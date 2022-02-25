@@ -23,11 +23,6 @@
 </div>
 
 <style>
-	section .container {
-		display: flex;
-		flex-direction: column;
-	}
-
 	.container {
 		max-width: 1000px;
 		margin: 0 auto;
