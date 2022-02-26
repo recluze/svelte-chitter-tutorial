@@ -9,6 +9,7 @@
 
     onMount(() => {
         console.log("Will read data here later... ");
+        ChitStore.loadChits(); 
     });
 
     onDestroy(() => {

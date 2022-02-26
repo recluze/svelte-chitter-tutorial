@@ -3,7 +3,7 @@ import { writable } from "svelte/store";
 import { incLikes, fetchChits } from "../backend/Api.js"
 
 function createChiteStore() {
-    const { subscribe, set, update } = writable(fetchChits());
+    const { subscribe, set, update } = writable([]);
 
     return {
         // set, // can get rid of this if you don't want to allow basic setting 
@@ -21,7 +21,11 @@ function createChiteStore() {
                 return pastChits;
             });
         },
-        clearChits: () => set([])
+        clearChits: () => set([]),
+        loadChits: async() => {
+            let data = await fetchChits();
+            set(data);
+        }
     };
 }
 
