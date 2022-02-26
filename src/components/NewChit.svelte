@@ -7,12 +7,13 @@
 
         // ChitStore.set([...allChits, { id: 2, author: 'User', handle: '@recluze', content: 'Some chit content here' }]);
         ChitStore.addNewChit({
-            id: 2,
+            id: 3,
             author: "User",
             handle: "@recluze",
             content: newChitContent,
             likes: 0
         });
+        newChitContent = ""; 
     }
 </script>
 
