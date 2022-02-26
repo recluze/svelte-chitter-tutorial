@@ -4,12 +4,14 @@
     import Chit from "./Chit.svelte";
 
     let allChits = [];
+    let loading = true;
 
     let chitStoreUnsub = ChitStore.subscribe((data) => (allChits = data));
 
-    onMount(() => {
+    onMount(async () => {
         console.log("Will read data here later... ");
-        ChitStore.loadChits(); 
+        await ChitStore.loadChits();
+        loading = false;
     });
 
     onDestroy(() => {
@@ -19,7 +21,19 @@
 </script>
 
 <div class="all-chits">
-    {#each allChits as chit (chit.id)}
-        <Chit {...chit} />
-    {/each}
+    {#if loading}
+        <div class="loader">Loading chits ...</div>
+    {:else}
+        {#each allChits as chit (chit.id)}
+            <Chit {...chit} />
+        {/each}
+    {/if}
 </div>
+
+<style>
+    .loader {
+        font-size: x-small;
+        padding-top: 20px;
+        opacity: 0.6;
+    }
+</style>
