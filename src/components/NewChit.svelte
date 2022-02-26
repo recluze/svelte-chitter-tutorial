@@ -1,6 +1,26 @@
+<script>
+    import { onDestroy } from "svelte";
+    import { ChitStore } from "../stores/ChitStore";
+
+    let allChits = [];
+    let chitStoreUnsub = ChitStore.subscribe((data) => (allChits = data));
+    onDestroy(() => {
+        console.log("AllChits destroyed ...");
+        chitStoreUnsub();
+    });
+
+    let newChitContent;
+    function createChit() {
+        console.log("Creating chit ... ", newChitContent);
+
+        ChitStore.set([...allChits, { id: 2, author: 'Blah', handle: '@recluze', content: 'Some chit content here' }])
+    }
+</script>
+
+
 <div class="chit-entry">
-    <textarea placeholder="Say something..." />
-    <button class="btn-send fa-solid fa-location-arrow" />
+    <textarea placeholder="Say something..." bind:value={ newChitContent } />
+    <button class="btn-send fa-solid fa-location-arrow" on:click={ createChit } />
 </div>
 
 <style>
