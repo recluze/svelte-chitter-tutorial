@@ -1,5 +1,4 @@
 <script>
-    import { onDestroy } from "svelte";
     import { ChitStore } from "../stores/ChitStore";
 
     let newChitContent;
@@ -12,6 +11,7 @@
             author: "User",
             handle: "@recluze",
             content: newChitContent,
+            likes: 0
         });
     }
 </script>
