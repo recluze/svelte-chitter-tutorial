@@ -1,5 +1,6 @@
 <script>
     import { ChitStore } from "../stores/ChitStore";
+    import { UserSessionStore } from "../stores/UserSession";
 
     let newChitContent;
     function createChit() {
@@ -8,7 +9,7 @@
         // ChitStore.set([...allChits, { id: 2, author: 'User', handle: '@recluze', content: 'Some chit content here' }]);
         ChitStore.addNewChit({
             id: 3,
-            author: "User",
+            author: $UserSessionStore.username,
             handle: "@recluze",
             content: newChitContent,
             likes: 0
