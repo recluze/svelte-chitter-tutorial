@@ -27,7 +27,7 @@
             <i class="fa-solid fa-retweet" /> 2
         </div>
         <div class="like" on:click={ () => onLike(id) }>
-            <i class="fa-solid fa-thumbs-up" /> {likes}
+            <i class="fa-solid fa-thumbs-up btn-like" /> {likes}
         </div>
         <div class="save">
             <i class="fa-solid fa-share-alt" />
@@ -63,6 +63,11 @@
         font-size: x-small;
         border-top: 1px solid #dce4ec22;
         padding-bottom: 0px;
+    }
+
+    .btn-like:active {
+        color:  rgb(103, 212, 255);
+        opacity: 1;
     }
 
     .chit-meta i {
