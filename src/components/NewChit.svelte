@@ -13,7 +13,13 @@
     function createChit() {
         console.log("Creating chit ... ", newChitContent);
 
-        ChitStore.set([...allChits, { id: 2, author: 'Blah', handle: '@recluze', content: 'Some chit content here' }])
+        // ChitStore.set([...allChits, { id: 2, author: 'User', handle: '@recluze', content: 'Some chit content here' }]);
+        ChitStore.addNewChit({
+            id: 2,
+            author: "User",
+            handle: "@recluze",
+            content: newChitContent,
+        });
     }
 </script>
 
