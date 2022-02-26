@@ -13,11 +13,15 @@ function createChiteStore() {
         },
         likeChit: (id) => {
             update(pastChits => {
+                let newCount = 1;
                 pastChits.map((chit) => {
-                    if (chit.id == id) chit.likes += 1;
+                    if (chit.id == id) {
+                        chit.likes += 1;
+                        newCount = chit.likes;
+                    }
                 });
 
-                incLikes(id);
+                incLikes(id, newCount);
                 return pastChits;
             });
         },
