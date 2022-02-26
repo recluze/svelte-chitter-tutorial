@@ -2,13 +2,6 @@
     import { onDestroy } from "svelte";
     import { ChitStore } from "../stores/ChitStore";
 
-    let allChits = [];
-    let chitStoreUnsub = ChitStore.subscribe((data) => (allChits = data));
-    onDestroy(() => {
-        console.log("AllChits destroyed ...");
-        chitStoreUnsub();
-    });
-
     let newChitContent;
     function createChit() {
         console.log("Creating chit ... ", newChitContent);
